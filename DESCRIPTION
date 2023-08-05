@@ -12,3 +12,5 @@ RoxygenNote: 7.2.3
 Imports: 
     cli,
     rstudioapi
+URL: https://github.com/djnavarro/etal
+BugReports: https://github.com/djnavarro/etal/issues
