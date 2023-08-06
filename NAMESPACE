@@ -2,6 +2,7 @@
 
 export(clear_console)
 export(exit)
+export(new_quarto_post)
 export(rainbow_banner)
 export(rstudio_bright)
 export(rstudio_dark)
