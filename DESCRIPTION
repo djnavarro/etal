@@ -13,6 +13,7 @@ Imports:
     brio,
     cli,
     fs,
-    rstudioapi
+    rstudioapi,
+    utils
 URL: https://github.com/djnavarro/etal
 BugReports: https://github.com/djnavarro/etal/issues
