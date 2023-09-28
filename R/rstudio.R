@@ -35,11 +35,11 @@ use_sink_project <- function() {
 #' @param folders Named vector of folder paths
 #' @param new_session Should a new session be started? (default = TRUE)
 #'
-#' @return Path to the folder
+#' @return NULL
 #' @export
-use_folder <- function(id,
-                       folders = getOption("etal.folders"),
-                       new_session = TRUE) {
+open_folder <- function(id,
+                        folders = getOption("etal.folders"),
+                        new_session = TRUE) {
 
   if(!is.character(folders) | is.null(names(folders))) {
     stop("`folders` must be a named character vector", call. = FALSE)
@@ -60,6 +60,10 @@ use_folder <- function(id,
     stop(paste0("directory \"", dir, "\" does not exist"), call. = FALSE)
   }
 
-  if (!new_session) return(setwd(dir))
-  rstudioapi::restartSession(command = paste0("setwd(\"", dir, "\")"))
+  setwd(dir)
+
+  if (!new_session | !rstudioapi::isAvailable()) return(invisible(NULL))
+
+  rstudioapi::filesPaneNavigate(dir)
+  rstudioapi::restartSession()
 }
